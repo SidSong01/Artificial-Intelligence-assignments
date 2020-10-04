@@ -14,7 +14,7 @@ The code for this project consists of two Python files.
 
 Your task is to modify search.py in order to implement three of the search algorithms covered in class: depth-first search, uniform cost search, and A*. 
 
---
+----
 
 * Depth First Search
 
@@ -33,7 +33,7 @@ You should see that in general A* finds the optimal solution (slightly) faster t
 
 Hint: By setting the heuristic distance to 0, the A* search effectively behaves like uniform cost search. By comparing the two search algorithms, you should be able to see the advantages of heuristics search on certain scenarios.
 
---
+----
 
 # Important notes: 
 
@@ -46,4 +46,5 @@ The code automatically visualizes the states in the open and closed list to help
 ---
 
 # TO DO:
-Lines 244-247: You do not need a separate list to hold the children. You can generate them on the fly for a in ACTIONS: child = (currentNode[0] + a[0], currentNode[1] + a[1]). Similarly, the actions if statement (line 255-262) are an overkill. You can simply do actions[child[0]][child[1]] = a, as you do for the parents in line 277. Line 372: You do not have to call remove. Whenever you call put, it first checks if a node is on the priority queue, and if it is, it just updates its value.
+* Lines 244-247: You do not need a separate list to hold the children. You can generate them on the fly for a in ACTIONS: child = (currentNode[0] + a[0], currentNode[1] + a[1]). * Similarly, the actions if statement (line 255-262) are an overkill. You can simply do actions[child[0]][child[1]] = a, as you do for the parents in line 277. 
+* Line 372: You do not have to call remove. Whenever you call put, it first checks if a node is on the priority queue, and if it is, it just updates its value.
