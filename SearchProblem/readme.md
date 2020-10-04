@@ -1,9 +1,14 @@
+[//]: # (Image References)
+
+[image1]: ./example.png
+
 ### First programming assignment of AI, license information has been included in files.
 
 # Overview
 
 Implementation of a number of search algorithms to guide an agent through a grid-based world. For simplicity, we'll assume that the state space is 2-dimensional, consisting of the grid location of the agent.
 
+![UNF example][image1]
 ---
 
 # Basic Requirements
@@ -21,6 +26,7 @@ Your task is to modify search.py in order to implement three of the search algor
 The depth_first_search function in `search.py`. You should employ the graph search version of DFS which allows a state to be expanded only once. Test your code on different maps to evaluate its correctness. We've provided a number of default maps, but you're welcome to edit the search_app.py and create your own maps.
 
 * Uniform Cost Search
+
 Depth-first search cannot find optimal paths, unless it gets lucky. To address this issue, the uniform_cost_search function in `search.py` implements the uniform cost search algorithm. Again, write a graph search algorithm that allows a state to be expanded only once. Your algorithm should return the optimal path from start to goal.
 
 Hint: As all action costs in the grid world are unit costs, uniform cost search behaves like breadth-first search with both methods returning optimal solutions (breaking ties in the priority queue may result in visually different minimal cost routes). You can verify this by implementing BFS by simply changing the data structure used in your DFS implementation to expand the open list nodes in a FIFO manner. Of course, when the step costs vary, BFS cannot guarantee optimal paths. You can change the cost function in search_app.py to verify this.  
