@@ -13,3 +13,13 @@ Test these algorithms in simple grid-like worlds, and use Q-learning to control 
 ![example][image1]
 ![example][image2]
 ---
+
+# Requirements
+
+* Python3
+
+* matplotlib
+
+```sh
+pip install matplotlib
+```
