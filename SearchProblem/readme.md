@@ -20,7 +20,7 @@ python search.py
 Then refer to the UI.
 
 # Basic Requirements
-The code for this project consists of two Python files.
+The code for this project consists of two Python files. Python3 is required.
 
 * `search.py` is the main execution of the project.
 * `search_app.py` is the necessary data structure and functions.
