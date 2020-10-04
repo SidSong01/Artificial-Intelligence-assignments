@@ -1,5 +1,8 @@
+# Overview
 
-In the first programming assignment, you will implement a number of search algorithms to guide an agent through a grid-based world. For simplicity, we'll assume that the state space is 2-dimensional, consisting of the grid location of the agent.
+Implementation of a number of search algorithms to guide an agent through a grid-based world. For simplicity, we'll assume that the state space is 2-dimensional, consisting of the grid location of the agent.
+
+---
 
 Basic Requirements
 The code for this project consists of two Python files. You can download them as a zip archive from here. After downloading the code, you should be able to display the grid world and generate different maps through the GUI by typing the following at the command line:
