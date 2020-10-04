@@ -11,6 +11,14 @@ Implementation of a number of search algorithms to guide an agent through a grid
 ![UNF example][image1]
 ---
 
+# TO USE
+
+```sh
+python search.py
+```
+
+Then refer to the UI.
+
 # Basic Requirements
 The code for this project consists of two Python files.
 
