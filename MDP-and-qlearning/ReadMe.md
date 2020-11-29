@@ -2,7 +2,7 @@
 
 [image1]: ./example1.png
 [image2]: ./example2.png
-[image3]: ./result.png
+[image3]: ./result_crawler.png
 
 ### Second programming assignment of AI, license information has been included in files.
 
