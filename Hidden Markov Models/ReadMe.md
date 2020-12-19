@@ -5,7 +5,9 @@ Observation update : Here, you say that the true distance follows a Gaussian wit
 [//]: # (Image References)
 
 [image1]: ./example.png
-[image2]: ./instructions.PNG
+[image2]: ./instructions1.png
+[image3]: ./instructions2.png
+[image4]: ./instructions3.png
 
 ## Overvies
 
@@ -22,6 +24,14 @@ $ python hmm.py
 `
 
 ![alt text][image2]
+![alt text][image3]
+![alt text][image4]
+
+#### Question 2 Particle Filtering
+
+Even though exact inference works well, it wastes a lot of time computing probabilities for every available grid cell, even for cells that is unlikely to have a tiger agent. We can address this problem using particle filtering that has complexity linear in the number of particles rather than linear in the number of discrete states.
+
+Modify the ParticleFilter class to calculate an approximate belief distribution of an agent's location over the discrete 2D world. The particles have already been initialized randomly. Your task is to implement the observe() and timeUpdate() functions. Both functions should modify self.particles which is a list of 2D cells (row, col). Your code should be able to track agents nearly as effectively as it does with exact inference. Keep in mind though that the resulting belief distribution will look noisier compared to the one obtained by exact inference.
 
 ## Important notes: 
 
