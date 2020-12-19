@@ -17,7 +17,7 @@ You will implement linear regression, logistic regression, and binary perceptron
 For the code to run, you need to have matplotlib installed. You should also try to take advantage of Python's numpy library. After downloading the zip file, you should be able to display the GUI for the homework by typing the following at the command line:
 
 `
-$python learning.py
+$ python learning.py
 `
 
 Your task is to modify learning.py in order to implement the objective functions and gradient calculations for linear and logistic regression, as well as the binary perceptron algorithm.
