@@ -5,4 +5,4 @@ AI Programming assignments.
 
 Licience information is included in the codes.
 
-* # Detailed information can be found in different folders.
+* # Detailed information and description can be found in different folders.
