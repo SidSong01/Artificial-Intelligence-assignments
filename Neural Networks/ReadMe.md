@@ -52,26 +52,24 @@ The library provides a number of optimization algorithms that can be used to tra
 
 Having set up an optimizer, one optimization iteration can be compute as follows:
 
-Perform backpropagation of the loss function to compute the gradients of the loss with respect to the parameters of the model
+* Perform backpropagation of the loss function to compute the gradients of the loss with respect to the parameters of the model
 
-Usage: loss.backward(), where loss is a loss node as defined above.
-Update the parameters of the model based on the gradients
-Usage: optimizer.step(), where optimizer denotes the selected optimization algorithm.
-Clear the currently computed gradients from the memory
-Usage: optimizer.zero_grad(), where optimizer denotes the selected optimization algorithm.
+`Usage: loss.backward(), where loss is a loss node as defined above.`
+
+* Update the parameters of the model based on the gradients
+
+`Usage: optimizer.step(), where optimizer denotes the selected optimization algorithm.`
+
+* Clear the currently computed gradients from the memory
+
+`Usage: optimizer.zero_grad(), where optimizer denotes the selected optimization algorithm.`
+
 When training a neural network, you will be passed a dataset object. The data is split into a training set, dataset.train, a validation set, dataset.validation, and a testing set, dataset.test. You will use the training set to learn the best parameters, the validation for hyperparameter tuning, and check the final performance of your network on the testing set.
 
-#### Question 1 Linear Regression
+#### Question 1 Digit Classification
 
+`$ python model.py`
 
-## Important notes: 
+#### Question 2 Letter Classification
 
-1. An extra ‘1’ feature is automatically added to each data set so that w0 will always act as an intercept term in linear regression, and as a bias term in the logistic regression.
-
-2. During the training, the performance of your model can be displayed by calling logger.log(i, loss) where i is the number of gradient descent iterations, and loss denotes the cost function that you are minimizing. This can help you debug your implementation and see the convergence rate of your algorithms. Once training is done, the performance of your learned model on the testing set is automatically displayed.
-
-3. As different data sets can have different number of examples, m, for better comparison across different models, you may want to consider dividing the cost function by m to ensure that the size of the training data set doesn't affect the function. This means that while updating the weights, the gradient should also be divided by m.
-
-4. In implementing batch gradient descent for linear and logistic regression, having for-loops where weights are computed one by one can work fine in small toy-like data sets. However, this approach is too slow for large problems that are more interesting. To address this issue, you should vectorize your gradient update implementation. To do so, you can use numpy's array structure to store the w, x, and y variables, and take advantage of numpy's dot and/or matmul functions to efficiently compute each iteration of gradient descent.
-
-5. As you will be using a fixed learning rate to do the gradient descent, the only parameter to tune is the number of gradient descent iterations. However, you may want to exit your algorithm early if the values have already converged. To do so, at each iteration you can compute the absolute difference between current and previous weights. If the max over these differences is below some small user-specified threshold, you can quit the algorithm. Alternatively, you can check the infinity norm of your gradient for convergence.
+`$ python notMnist_model.py`
