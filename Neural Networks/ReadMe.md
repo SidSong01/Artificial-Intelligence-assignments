@@ -29,38 +29,40 @@ The library provides many optimized operations and data structures along with su
 #### Here is a list of activation functions that you can apply to activate the units of a hidden layer:
 
 * nn.ReLU applies the element-wise Rectified Linear Unit nonlinearity: relu(x) = max(x, 0).
-Usage: nn.ReLU(z), which returns a node with the same shape as the input.
+`Usage: nn.ReLU(z), which returns a node with the same shape as the input.`
 * nn.sigmoid applies the element-wise sigmoid nonlinearity: sigmoid(x) = 1/(1+exp(-x)).
-Usage: nn.sigmoid(z), which returns a node with the same shape as the input.
+
+`Usage: nn.sigmoid(z), which returns a node with the same shape as the input.`
 * nn.tanh applies the element-wise hyperbolic tangent nonlinearity: tanh(x) = (exp(x)-exp(-x))/(exp(x)+exp(-x)).
 
-Usage: nn.tanh(z), which returns a node with the same shape as the input.
+`Usage: nn.tanh(z), which returns a node with the same shape as the input.`
 
 The library provides a number of objects that implement different loss (cost) functions including among others:
 
-nn.mse_loss computes a batched mean square loss, used for regression problems
-Usage: loss = nn.mse_loss(a, b), where a and b both have shape batch_size x num_outputs.
-nn.softmax_cross_entropy_loss computes a batched softmax loss that can be used for classification problems
-Usage: [loss, probabilities] = nn.softmax_cross_entropy_loss(logits, labels), where logits have shape batch_size x num_classes, and the label have shape batch_size x 1. The term "logits" refers to the non-normalized scores produced by a model that will be converted to probabilities via the softmax activation function. The labels denote the actual classes of the batch data. Be sure not to swap the order of the arguments!
+* nn.mse_loss computes a batched mean square loss, used for regression problems
+`Usage: loss = nn.mse_loss(a, b), where a and b both have shape batch_size x num_outputs.`
+
+* nn.softmax_cross_entropy_loss computes a batched softmax loss that can be used for classification problems
+`Usage: [loss, probabilities] = nn.softmax_cross_entropy_loss(logits, labels), where logits have shape batch_size x num_classes, and the label have shape batch_size x 1. The term "logits" refers to the non-normalized scores produced by a model that will be converted to probabilities via the softmax activation function. The labels denote the actual classes of the batch data. Be sure not to swap the order of the arguments!`
+
+The library provides a number of optimization algorithms that can be used to train the parameters of your model, including gradient descent:
+
+* nn.sgd implements gradient descent updates.
+`Usage: nn.sgd(params, stepsize), where params are the neural network parameters (w's and b's), and stepsize is the learning rate.`
+
+Having set up an optimizer, one optimization iteration can be compute as follows:
+
+Perform backpropagation of the loss function to compute the gradients of the loss with respect to the parameters of the model
+
+Usage: loss.backward(), where loss is a loss node as defined above.
+Update the parameters of the model based on the gradients
+Usage: optimizer.step(), where optimizer denotes the selected optimization algorithm.
+Clear the currently computed gradients from the memory
+Usage: optimizer.zero_grad(), where optimizer denotes the selected optimization algorithm.
+When training a neural network, you will be passed a dataset object. The data is split into a training set, dataset.train, a validation set, dataset.validation, and a testing set, dataset.test. You will use the training set to learn the best parameters, the validation for hyperparameter tuning, and check the final performance of your network on the testing set.
 
 #### Question 1 Linear Regression
 
-Modify the linear_regression function in learning.py to implement linear regression using full-batch gradient descent. The goal here is to find the best choice of weights wi for predicting the target variable y as a linear function of input features x. To do so, you are going to use the sum of squared errors as the loss/cost function, and minimize it using batch gradient descent with a fixed learning rate.
-
-You should first test your implementation on the Boston housing data set which contains housing values in suburbs of Boston. This data set is a copy of the UCI ML housing dataset. The y-values are the prices of the houses in $1K, and the x-values correspond to 13 input feature variables (see here for details). Overall, there are 506 examples in the data set, split into a training and testing set. The objective is to predict the value of a house using the given features. Once your code is working, you can also test it against the diabetes data set which contains a quantitative measure of disease progression for 442 diabetes patients based on ten variables (see here for details).
-
-#### Question 2 Binary Perceptron
-
-Modify the binary_perceptron function in learning.py to solve binary classification problems using a binary perceptron. The goal here is to find the weights wi for predicting the correct binary label y given input features x. To do so, you should repeatedly loop over the training examples, compute the dot product between the weight vector and each given example, and update w for examples that are misclassified. When an entire pass over the training set is completed without making any mistakes, training can terminate.
-
-You should use your code in the handwritten digits dataset to learn to classify images of digits as either “0” or “1”. This dataset is a reduced version of the MNIST dataset consisting of 359 examples; each of the digits is represented by an 8x8 grid of pixel values, and each pixel is an integer in the range [0,16]. If your code is correct, your classifier should be able to achieve 100% accuracy on the training set. The reason is that 0 and 1 digits look significantly different and the resulting training data sets are perfectly separable allowing the algorithm to converge.
-
-Unfortunately, when the training data is not separable, the weights might thrash and the perceptron may not converge. For example, depending on the training data extracted from the breast cancer dataset, the algorithm may never converge. In addition, the perceptron suffers from mediocre generalization as it doesn't care for finding the optimal w but rather focuses on computing a weight vector that can simply separate the two classes. In the handwritten digits classification problem, for example, the perceptron can result in a testing accuracy smaller than 100%, despite the simplicity of the problem. To address these issues, you will implement logistic regression next.
-
-#### Question 3 Logistic Regression
-Modify the logistic_regression function in learning.py to implement logistic regression using full-batch gradient descent for solving binary classification problems. The goal here is to find the best choice of weights w for predicting the correct binary label y given input features x. To do so, you are going to use the negative log-likelihood estimate for w as the loss/cost function, and minimize it using batch gradient descent with a fixed learning rate. Note that as gradient descent for linear and logistic regression differ only in the function that your are learning (linear vs sigmoid), implementing logistic regression should be pretty straightforward.
-
-You should use your code in the handwritten digits dataset. If your code is correct, your classifier should be able to achieve 100% accuracy both on the training and testing sets. Similarly, you should be able to obtain high classification accuracy in the breast cancer dataset, where the task here is to predict whether a tumor is malignant or benign based on 30 input features. The dataset consists of 569 examples, and the features are computed from a digitized image of a fine needle aspirate of a breast mass (see here for details).
 
 ## Important notes: 
 
