@@ -5,7 +5,7 @@ Observation update : Here, you say that the true distance follows a Gaussian wit
 [//]: # (Image References)
 
 [image1]: ./example.png
-[image2]: ./instructions.png
+[image2]: ./instructions.PNG
 
 ## Overvies
 
